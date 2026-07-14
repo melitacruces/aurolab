@@ -1,0 +1,18 @@
+---
+import ProducerTools from "../components/ProducerTools.jsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { INDEXABLE_ROUTES } from "../lib/seo.js";
+
+export function getStaticPaths() {
+  return INDEXABLE_ROUTES.filter((route) => route.sectionId !== "home").map((route) => ({
+    params: { tool: route.slug },
+    props: { sectionId: route.sectionId },
+  }));
+}
+
+const { sectionId } = Astro.props;
+---
+
+<BaseLayout sectionId={sectionId}>
+  <ProducerTools initialSection={sectionId} client:load />
+</BaseLayout>

@@ -1,0 +1,135 @@
+---
+import montserratFont from "@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url";
+import quintessentialFont from "@fontsource/quintessential/files/quintessential-latin-400-normal.woff2?url";
+import { getSeoRoute, SITE } from "../lib/seo.js";
+import "../styles/global.css";
+
+interface Props {
+  sectionId?: string;
+}
+
+const { sectionId = "home" } = Astro.props;
+const page = getSeoRoute(sectionId);
+const siteOrigin = Astro.site || new URL(SITE.defaultOrigin);
+const canonicalUrl = new URL(page.path, siteOrigin);
+const homeUrl = new URL("/", siteOrigin);
+const imageUrl = new URL(SITE.imagePath, siteOrigin);
+const creatorId = new URL("/#creator", siteOrigin).href;
+const websiteId = new URL("/#website", siteOrigin).href;
+const applicationId = new URL(`${page.path}#application`, siteOrigin).href;
+const webpageId = new URL(`${page.path}#webpage`, siteOrigin).href;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": creatorId,
+      name: SITE.creator.name,
+      url: SITE.creator.url,
+      sameAs: SITE.creator.social,
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: SITE.name,
+      url: homeUrl.href,
+      description: getSeoRoute("home").description,
+      inLanguage: SITE.language,
+      creator: { "@id": creatorId },
+    },
+    {
+      "@type": "WebApplication",
+      "@id": applicationId,
+      name: page.name,
+      url: canonicalUrl.href,
+      description: page.description,
+      applicationCategory: "MultimediaApplication",
+      operatingSystem: "Any",
+      browserRequirements: "Requires a modern web browser; audio features use the Web Audio API.",
+      isAccessibleForFree: true,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      featureList: page.features,
+      creator: { "@id": creatorId },
+    },
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+      url: canonicalUrl.href,
+      name: page.title,
+      description: page.description,
+      inLanguage: SITE.language,
+      isPartOf: { "@id": websiteId },
+      mainEntity: { "@id": applicationId },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: imageUrl.href,
+        width: SITE.imageWidth,
+        height: SITE.imageHeight,
+      },
+    },
+  ],
+};
+
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+---
+
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030711" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content={SITE.name} />
+    <meta name="author" content={SITE.creator.name} />
+    <meta name="description" content={page.description} />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <link rel="author" href={SITE.creator.url} />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:title" content={page.title} />
+    <meta property="og:description" content={page.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:secure_url" content={imageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content={String(SITE.imageWidth)} />
+    <meta property="og:image:height" content={String(SITE.imageHeight)} />
+    <meta property="og:image:alt" content={SITE.imageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@dhreian" />
+    <meta name="twitter:title" content={page.title} />
+    <meta name="twitter:description" content={page.description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={SITE.imageAlt} />
+
+    <link rel="preload" href={montserratFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={quintessentialFont} as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={structuredDataJson}></script>
+    <title>{page.title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,42 +1,8 @@
 ---
 import ProducerTools from "../components/ProducerTools.jsx";
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <meta
-      name="description"
-      content="auroLab brings together precise tools for music producers: BPM-synced delay and reverb, metronome, tap tempo, and local BPM and key analysis."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="auroLab — Music Production Tools" />
-    <meta
-      property="og:description"
-      content="Precise musical decisions with delay and reverb calculations, a metronome, tap tempo, and local audio analysis."
-    />
-    <meta property="og:image" content="/og.png" />
-    <meta property="og:image:alt" content="auroLab, tools for precise music production decisions" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="auroLab — Music Production Tools" />
-    <meta
-      name="twitter:description"
-      content="Precise musical decisions with four fast, private tools for producers."
-    />
-    <meta name="twitter:image" content="/og.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Quintessential&display=swap"
-      rel="stylesheet"
-    />
-    <title>auroLab — Music Production Tools</title>
-  </head>
-  <body>
-    <ProducerTools client:load />
-  </body>
-</html>
+<BaseLayout sectionId="home">
+  <ProducerTools initialSection="home" client:load />
+</BaseLayout>

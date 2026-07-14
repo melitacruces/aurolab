@@ -1,12 +1,13 @@
 export const COPY = {
     meta: {
-      title: "auroLab — Music Production Tools",
+      title: "auroLab - Music Production Tools",
       description:
         "auroLab brings together precise tools for music producers: BPM-synced delay and reverb, metronome, tap tempo, and local BPM and key analysis.",
     },
     sidebar: {
       navigation: "Tool navigation",
-      developedBy: "Developed By",
+      developedBy: "Developed by",
+      socialNavigation: "Creator social links",
     },
     sections: {
       home: {
@@ -41,12 +42,12 @@ export const COPY = {
       },
     },
     home: {
-      eyebrow: "Music production without guesswork",
-      title: "Turn ideas into precise decisions without leaving your session.",
+      eyebrow: "Music Production without Guesswork",
+      title: "Turn Ideas into Precise Decisions without Leaving Your Session",
       description:
         "auroLab brings together the essential tools for shaping tempo, space, and harmony. Calculate, listen, and analyze in seconds so you can stay focused on what matters: your music.",
-      toolsEyebrow: "The complete lab",
-      toolsTitle: "Everything you need between an idea and its best version.",
+      toolsEyebrow: "The Complete Lab",
+      toolsTitle: "Everything You Need between an Idea and Its Best Version",
     },
     delay: {
       eyebrow: "Delay calculator",
@@ -90,9 +91,9 @@ export const COPY = {
       },
       reverbs: {
         hall: { name: "Hall", size: "2 bars" },
-        largeRoom: { name: "Large room", size: "1 bar" },
-        smallRoom: { name: "Small room", size: "1/2 note" },
-        tightAmbience: { name: "Tight ambience", size: "1/4 note" },
+        largeRoom: { name: "Large Room", size: "1 bar" },
+        smallRoom: { name: "Small Room", size: "1/2 note" },
+        tightAmbience: { name: "Tight Ambience", size: "1/4 note" },
       },
     },
     metronome: {
@@ -146,7 +147,7 @@ export const COPY = {
         "BPM: spectral flux and onset-interval histogram. Key: chroma (Goertzel) against Krumhansl-Schmuckler profiles using cosine similarity.",
       drop: "Drop your audio here",
       chooseHint: "or choose a file from your computer",
-      chooseAudio: "Choose audio",
+      chooseAudio: "Choose Audio",
       disabled: "File analysis is disabled because this browser does not expose Web Audio.",
       detectedBpm: "Detected BPM",
       bpmConfidence: "BPM confidence",

@@ -1,0 +1,17 @@
+{
+  "name": "auroLab Music Production Tools",
+  "short_name": "auroLab",
+  "description": "Precise browser-based tools for music producers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030711",
+  "theme_color": "#030711",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
