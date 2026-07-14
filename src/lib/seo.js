@@ -3,10 +3,6 @@ export const SITE = {
   language: "en",
   locale: "en_US",
   defaultOrigin: "https://aurolab-rosy.vercel.app",
-  imagePath: "/og.png",
-  imageAlt: "auroLab tools for precise music production decisions",
-  imageWidth: 1731,
-  imageHeight: 909,
   creator: {
     name: "dhreian",
     url: "https://dhreian.com",

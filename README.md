@@ -1,13 +1,11 @@
 # 🚀 auroLab - Herramientas de Producción Musical
 
-![Astro](https://img.shields.io/badge/Astro-7.0.6-BC52EE?style=for-the-badge&logo=astro&logoColor=white)
-![React](https://img.shields.io/badge/React-19.2.7-61DAFB?style=for-the-badge&logo=react&logoColor=061A23)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES_Modules-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000)
-![Web Audio API](https://img.shields.io/badge/Web_Audio_API-Procesamiento_local-8A6CFF?style=for-the-badge&logo=webauthn&logoColor=white)
+![Astro](https://img.shields.io/badge/ASTRO-000000?style=for-the-badge&logo=astro&logoColor=white)
+![React](https://img.shields.io/badge/REACT-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JAVASCRIPT-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css&logoColor=white)
 
 > **Herramientas precisas para convertir tempo, espacio y armonía en decisiones musicales sin salir del navegador.**
-
-![Vista general de auroLab](./public/og.png)
 
 ---
 
@@ -17,17 +15,17 @@
 
 ---
 
-## 📋 Tabla de contenidos
+## 📋 Tabla de Contenidos
 
 - [🔍 ¿Qué es este proyecto?](#-qué-es-este-proyecto)
-- [✨ Características principales](#-características-principales)
-- [🎛️ Herramientas incluidas](#️-herramientas-incluidas)
-- [🔒 Privacidad y procesamiento de audio](#-privacidad-y-procesamiento-de-audio)
-- [🛠️ Tecnologías utilizadas](#️-tecnologías-utilizadas)
-- [🎨 Estilo y diseño](#-estilo-y-diseño)
-- [📁 Estructura del proyecto](#-estructura-del-proyecto)
-- [🚀 Requisitos e instalación](#-requisitos-e-instalación)
-- [📦 Scripts y comandos](#-scripts-y-comandos)
+- [✨ Características Principales](#-características-principales)
+- [🎛️ Herramientas Incluidas](#️-herramientas-incluidas)
+- [🔒 Privacidad y Procesamiento de Audio](#-privacidad-y-procesamiento-de-audio)
+- [🛠️ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
+- [🎨 Estilo y Diseño](#-estilo-y-diseño)
+- [📁 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🚀 Requisitos e Instalación](#-requisitos-e-instalación)
+- [📦 Scripts y Comandos](#-scripts-y-comandos)
 - [📧 Contacto](#-contacto)
 
 ---
@@ -40,7 +38,7 @@ La aplicación está construida como un sitio estático con Astro y una interfaz
 
 ---
 
-## ✨ Características principales
+## ✨ Características Principales
 
 - **Delay y reverb sincronizados:** convierte BPM a milisegundos y hercios para subdivisiones normales, con puntillo y tresillo; además propone valores de pre-delay y decay.
 - **Metrónomo preciso:** utiliza el reloj de Web Audio, programación anticipada de eventos, acento en el primer pulso, compases configurables, tap tempo y control de volumen.
@@ -53,7 +51,7 @@ La aplicación está construida como un sitio estático con Astro y una interfaz
 
 ---
 
-## 🎛️ Herramientas incluidas
+## 🎛️ Herramientas Incluidas
 
 | Herramienta            | Entrada                                                                         | Resultado                                                                               |
 | :--------------------- | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------- |
@@ -66,7 +64,7 @@ El detector de tempo busca transientes mediante cambios de energía y compara su
 
 ---
 
-## 🔒 Privacidad y procesamiento de audio
+## 🔒 Privacidad y Procesamiento de Audio
 
 El analizador usa `File.arrayBuffer()`, `AudioContext.decodeAudioData()` y procesamiento JavaScript en memoria. **No envía el archivo a una API ni lo almacena fuera del navegador.**
 
@@ -74,9 +72,9 @@ La compatibilidad de WAV, MP3, FLAC, AAC y otros formatos depende de los códecs
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🛠️ Tecnologías Utilizadas
 
-### Frontend e interfaz de usuario
+### Frontend e Interfaz de Usuario
 
 - **Core:** Astro 7, React 19, JavaScript con ES Modules, HTML5 y CSS3.
 - **Interactividad:** islas de React hidratadas en el cliente mediante `@astrojs/react`.
@@ -84,7 +82,7 @@ La compatibilidad de WAV, MP3, FLAC, AAC y otros formatos depende de los códecs
 - **Iconos:** Font Awesome Free Solid, renderizado como SVG dentro de los componentes.
 - **Tipografías:** paquetes locales de Fontsource, sin solicitudes a servicios externos de fuentes.
 
-### Arquitectura y entrega
+### Arquitectura y Entrega
 
 - **Generación:** páginas estáticas con rutas dinámicas preconstruidas por Astro.
 - **SEO:** metadatos por herramienta, canonical URLs, Open Graph, Twitter Cards y datos estructurados Schema.org.
@@ -93,11 +91,11 @@ La compatibilidad de WAV, MP3, FLAC, AAC y otros formatos depende de los códecs
 
 ---
 
-## 🎨 Estilo y diseño
+## 🎨 Estilo y Diseño
 
 auroLab utiliza una estética oscura inspirada en interfaces de estudio: fondos azul noche, paneles de alto contraste y acentos violetas para destacar valores, controles y estados activos. La cuadrícula sutil, los brillos contenidos y la jerarquía tipográfica mantienen el carácter técnico sin sacrificar legibilidad.
 
-### Paleta de colores
+### Paleta de Colores
 
 | Color                | Hexadecimal | Uso principal                                 |
 | :------------------- | :---------- | :-------------------------------------------- |
@@ -117,13 +115,12 @@ auroLab utiliza una estética oscura inspirada en interfaces de estudio: fondos 
 
 ---
 
-## 📁 Estructura del proyecto
+## 📁 Estructura del Proyecto
 
 ```text
 📂 aurolab
  ┣ 📂 public
  ┃ ┣ 📜 logo.svg                 # Identidad visual y favicon
- ┃ ┣ 🖼️ og.png                   # Imagen para redes sociales y README
  ┃ ┗ 📜 site.webmanifest         # Metadatos de instalación web
  ┣ 📂 src
  ┃ ┣ 📂 components
@@ -151,7 +148,7 @@ auroLab utiliza una estética oscura inspirada en interfaces de estudio: fondos 
 
 ---
 
-## 🚀 Requisitos e instalación
+## 🚀 Requisitos e Instalación
 
 ### Requisitos
 
@@ -159,7 +156,7 @@ auroLab utiliza una estética oscura inspirada en interfaces de estudio: fondos 
 - npm, incluido con Node.js.
 - Un navegador moderno con soporte para Web Audio API si quieres usar las funciones de audio.
 
-### Instalación local
+### Instalación Local
 
 ```bash
 git clone https://github.com/melitacruces/aurolab.git
@@ -172,7 +169,7 @@ Abre [http://localhost:4321](http://localhost:4321) en el navegador. El proyecto
 
 ---
 
-## 📦 Scripts y comandos
+## 📦 Scripts y Comandos
 
 | Comando           | Descripción                                                      |
 | :---------------- | :--------------------------------------------------------------- |

@@ -13,7 +13,6 @@ const page = getSeoRoute(sectionId);
 const siteOrigin = Astro.site || new URL(SITE.defaultOrigin);
 const canonicalUrl = new URL(page.path, siteOrigin);
 const homeUrl = new URL("/", siteOrigin);
-const imageUrl = new URL(SITE.imagePath, siteOrigin);
 const creatorId = new URL("/#creator", siteOrigin).href;
 const websiteId = new URL("/#website", siteOrigin).href;
 const applicationId = new URL(`${page.path}#application`, siteOrigin).href;
@@ -65,12 +64,6 @@ const structuredData = {
       inLanguage: SITE.language,
       isPartOf: { "@id": websiteId },
       mainEntity: { "@id": applicationId },
-      primaryImageOfPage: {
-        "@type": "ImageObject",
-        url: imageUrl.href,
-        width: SITE.imageWidth,
-        height: SITE.imageHeight,
-      },
     },
   ],
 };
@@ -110,19 +103,10 @@ const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c
     <meta property="og:title" content={page.title} />
     <meta property="og:description" content={page.description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:secure_url" content={imageUrl} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content={String(SITE.imageWidth)} />
-    <meta property="og:image:height" content={String(SITE.imageHeight)} />
-    <meta property="og:image:alt" content={SITE.imageAlt} />
-
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@dhreian" />
     <meta name="twitter:title" content={page.title} />
     <meta name="twitter:description" content={page.description} />
-    <meta name="twitter:image" content={imageUrl} />
-    <meta name="twitter:image:alt" content={SITE.imageAlt} />
 
     <link rel="preload" href={montserratFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={quintessentialFont} as="font" type="font/woff2" crossorigin />
